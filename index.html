@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>冠军殿堂 | Hall of Champions</title>
+    <title>SSJJ 冠军殿堂</title>
     <style>
         :root {
             --gold: #d4af37;
             --dark-bg: #0a0a0a;
-            --statue-gray: #4a4a4a;
         }
 
         body {
             margin: 0;
             background-color: var(--dark-bg);
             color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -24,7 +23,6 @@
 
         h1 {
             margin-top: 50px;
-            text-transform: uppercase;
             letter-spacing: 5px;
             color: var(--gold);
             text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
@@ -36,100 +34,85 @@
             flex-wrap: wrap;
             gap: 40px;
             padding: 50px;
-            margin-top: 50px;
         }
 
         .champion-shrine {
             display: flex;
             flex-direction: column;
             align-items: center;
-            perspective: 1000px;
-        }
-
-        /* 雕像占位符 */
-        .statue {
-            width: 150px;
-            height: 350px;
-            background: linear-gradient(to bottom, #666, #222);
-            position: relative;
-            border-radius: 10px 10px 0 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            transition: transform 0.3s ease;
             cursor: pointer;
-            /* 这里可以替换成真实的透明雕像图片 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .statue::after {
-            content: "👤"; /* 暂时用图标代替，你可以换成 <img> */
+        /* 奖杯样式 */
+        .trophy {
             font-size: 80px;
-            filter: grayscale(1) brightness(0.7);
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
+            margin-bottom: 20px;
         }
 
-        .statue:hover {
-            transform: scale(1.05) translateY(-10px);
-            filter: brightness(1.2);
+        .champion-shrine:hover .trophy {
+            transform: scale(1.2) translateY(-10px);
+            filter: drop-shadow(0 0 20px var(--gold));
         }
 
-        /* 底座设计 */
         .pedestal {
-            width: 200px;
-            height: 80px;
+            width: 150px;
+            height: 60px;
             background: #1a1a1a;
             border: 2px solid var(--gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
             box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
         .pedestal h2 {
             margin: 0;
             color: var(--gold);
-            font-size: 2rem;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            font-size: 1.5rem;
         }
 
-        /* 装饰性灯光 */
-        .light-ray {
-            position: absolute;
-            bottom: 0;
-            width: 120%;
-            height: 400px;
-            background: radial-gradient(circle at bottom, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
-            pointer-events: none;
+        /* 提示说明 */
+        .hint {
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <h1>冠军荣誉殿堂</h1>
+    <h1>SSJJ 冠军荣誉殿堂</h1>
+    <p class="hint">点击奖杯揭晓冠军 ID</p>
 
     <div class="monument-container">
-        <div class="champion-shrine">
-            <div class="statue"><div class="light-ray"></div></div>
+        <div class="champion-shrine" onclick="showId('S1', '向晚Ava','乃琳Eileen','嘉然Diana','珈乐Carol','GenshinKing')">
+            <div class="trophy">🏆</div>
             <div class="pedestal"><h2>S1</h2></div>
         </div>
 
-        <div class="champion-shrine">
-            <div class="statue"><div class="light-ray"></div></div>
+        <div class="champion-shrine" onclick="showId('S2', '向晚Ava','乃琳Eileen','嘉然Diana','珈乐Carol','GenshinKing','Nan_yOu（替补）')">
+            <div class="trophy">🏆</div>
             <div class="pedestal"><h2>S2</h2></div>
         </div>
 
-        <div class="champion-shrine">
-            <div class="statue"><div class="light-ray"></div></div>
+        <div class="champion-shrine" onclick="showId('S3', '梦回柳景庄','梦回苏子瞻','永雏塔菲喵','夜华','星痕','梦回李商隐','梦回白居易.','小脑虎','烟云天神（替补）')">
+            <div class="trophy">🏆</div>
             <div class="pedestal"><h2>S3</h2></div>
         </div>
 
-        <div class="champion-shrine">
-            <div class="statue"><div class="light-ray"></div></div>
+        <div class="champion-shrine" onclick="showId('S4', 'TBD')">
+            <div class="trophy">🏆</div>
             <div class="pedestal"><h2>S4</h2></div>
         </div>
     </div>
 
+    <script>
+        function showId(season, memberId) {
+            alert(season + " 冠军成员是：\n" + memberId);
+        }
+    </script>
+
 </body>
-</html>
+</html>                          
