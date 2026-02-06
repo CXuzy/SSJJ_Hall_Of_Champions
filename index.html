@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSJJ 冠军殿堂</title>
+    <title>SSJJ 冠军荣誉殿堂</title>
     <style>
         :root {
             --gold: #d4af37;
@@ -14,7 +14,7 @@
             margin: 0;
             background-color: var(--dark-bg);
             color: white;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'PingFang SC', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -41,23 +41,21 @@
             flex-direction: column;
             align-items: center;
             cursor: pointer;
+            transition: transform 0.3s;
         }
 
-        /* 奖杯样式 */
+        .champion-shrine:hover {
+            transform: translateY(-10px);
+        }
+
         .trophy {
             font-size: 80px;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
-            margin-bottom: 20px;
-        }
-
-        .champion-shrine:hover .trophy {
-            transform: scale(1.2) translateY(-10px);
-            filter: drop-shadow(0 0 20px var(--gold));
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+            margin-bottom: 10px;
         }
 
         .pedestal {
-            width: 150px;
+            width: 160px;
             height: 60px;
             background: #1a1a1a;
             border: 2px solid var(--gold);
@@ -70,11 +68,10 @@
         .pedestal h2 {
             margin: 0;
             color: var(--gold);
-            font-size: 1.5rem;
         }
 
-        /* 提示说明 */
-        .hint {
+        /* 底部提示 */
+        .footer-note {
             margin-top: 20px;
             color: #666;
             font-size: 0.9rem;
@@ -84,35 +81,38 @@
 <body>
 
     <h1>SSJJ 冠军荣誉殿堂</h1>
-    <p class="hint">点击奖杯揭晓冠军 ID</p>
 
     <div class="monument-container">
-        <div class="champion-shrine" onclick="showId('S1', '向晚Ava','乃琳Eileen','嘉然Diana','珈乐Carol','GenshinKing')">
+        <div class="champion-shrine" onclick="showId('S1', ['向晚Ava','乃琳Eileen','嘉然Diana','珈乐Carol','GenshinKing'])">
             <div class="trophy">🏆</div>
             <div class="pedestal"><h2>S1</h2></div>
         </div>
 
-        <div class="champion-shrine" onclick="showId('S2', '向晚Ava','乃琳Eileen','嘉然Diana','珈乐Carol','GenshinKing','Nan_yOu（替补）')">
+        <div class="champion-shrine" onclick="showId('S2', ['向晚Ava','乃琳Eileen','嘉然Diana','珈乐Carol','GenshinKing','Nan_yOu（替补）'])">
             <div class="trophy">🏆</div>
             <div class="pedestal"><h2>S2</h2></div>
         </div>
 
-        <div class="champion-shrine" onclick="showId('S3', '梦回柳景庄','梦回苏子瞻','永雏塔菲喵','夜华','星痕','梦回李商隐','梦回白居易.','小脑虎','烟云天神（替补）')">
+        <div class="champion-shrine" onclick="showId('S3', ['梦回柳景庄','梦回苏子瞻','永雏塔菲喵','夜华','星痕','梦回李商隐','梦回白居易.','小脑虎','烟云天神（替补）'])">
             <div class="trophy">🏆</div>
             <div class="pedestal"><h2>S3</h2></div>
         </div>
 
-        <div class="champion-shrine" onclick="showId('S4', 'TBD')">
+        <div class="champion-shrine" onclick="showId('S4', ['待定 (TBD)'])">
             <div class="trophy">🏆</div>
             <div class="pedestal"><h2>S4</h2></div>
         </div>
     </div>
 
+    <p class="footer-note">点击奖杯查看详细成员名单</p>
+
     <script>
-        function showId(season, memberId) {
-            alert(season + " 冠军成员是：\n" + memberId);
+        function showId(season, members) {
+            // 将数组转换成换行的字符串
+            const list = members.join('\n• ');
+            alert(season + " 冠军组名单：\n\n• " + list);
         }
     </script>
 
 </body>
-</html>                          
+</html>
